@@ -1,0 +1,150 @@
+body,h1,h4,h5 {font-family: "Playfair Display", sans-serif}
+h5 {
+    width: 36%;
+    word-wrap:break-word;
+    word-break:break-all;
+    overflow: hidden;
+    padding: 0px;
+}
+html, body {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    position: relative;
+}
+
+body {
+    background-attachment: fixed;
+    background-repeat:no-repeat;
+    background-image: url("/static/img/background2.jpg");
+    background-size: cover;
+    background-position: 100% 100% fixed;
+    min-height: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.word {
+    width: 26%;
+    word-wrap:break-word;
+    word-break:break-all;
+    overflow: hidden;
+    padding: 0px;
+}
+
+.header {
+    opacity: 0;
+    color:none;
+    padding:100px;
+    }
+
+
+.div-center {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.section {
+    margin-top: 0px;
+    margin-left: 0px;
+    position: relative;
+    width:360px;
+    min-height: 100%;
+    float:right;
+    background-color:rgba(0, 0, 0, 0.5);
+    padding:0px;
+}
+
+.section_second {
+    margin-top: 200px;
+    position: center center;
+    width:400px;
+    min-height: 100%;
+    float:right;
+    background-color:rgba(0, 0, 0, 0.5);
+    padding:30px;
+    <!--border:1px solid black;-->
+}
+
+.section_title{
+     width:400px;
+     height:50px;
+}
+
+.section_title text{
+    font-family: font-family: "Raleway", sans-serif;
+    font-style:italic;
+    font-size:40px;
+    }
+
+.ninegrids{
+    width: 100px;
+    height: 100px;
+    background: none;
+    position: relative;
+    border: 5px solid rgba(0, 0, 0, 0.0001);
+    float:left;
+    text-align: center;
+}
+
+.ninegrids_left{
+    width: 27px;
+    height: 100px;
+    background: none;
+    position: relative;
+    border: 5px solid rgba(0, 0, 0, 0.0001);
+    float:left;
+    text-align: center;
+}
+
+.ninegrids_bottom{
+    width: 27px;
+    height: 100px;
+    background: none;
+    position: relative;
+    border: 5px solid rgba(0, 0, 0, 0.0001);
+    float:left;
+    text-align: center;
+}
+
+.round-button-circle {
+    width: 70px;
+    height: 70px;
+    padding-bottom: 100%;
+    border-radius: 35px;
+    border:3px solid #cfdcec;
+    overflow:hidden;
+    background: #4679BD;
+    box-shadow: 0 0 3px gray;
+
+    text-align:center;
+    vertical-align:middle;
+    color:#e2eaf3;
+    font-family:Verdana;
+    font-size:0.7em;
+    font-weight:bold;
+    text-decoration:none;
+    }
+.round-button-circle span{
+    position: absolute;
+    left: 40%;
+    top: 50%;
+    -ms-transform: translate(-10%, -10%);
+    -webkit-transform: translate(-10%, -10%);
+    transform: translate(-50%, -125%);
+}
+
+.round-button-circle:hover {
+    background:#30588e;
+}
+
+.round-button {
+    display:block;
+    float:center;
+    width:50%;
+    padding-top:20%;
+    padding-bottom:20%;
+    padding-left: 20%;
+    line-height:1em;
+    margin-top:-0.5em;
+}
