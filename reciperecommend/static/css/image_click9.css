@@ -1,0 +1,49 @@
+.cc-selector input{
+    margin:0;padding:0;
+    -webkit-appearance:none;
+       -moz-appearance:none;
+            appearance:none;
+}
+.Asian_Garlic_Tofu{background-image:url(/static/img/Asian_Garlic_Tofu.jpg);}
+.Mexican_Beef_Lasagna{background-image:url(/static/img/Mexican_Beef_Lasagna.jpg);}
+.Chicken_and_Avocado_Burritos{background-image:url(/static/img/Chicken_and_Avocado_Burritos.jpg);}
+.Chicken_Stir-Fry_with_Noodles{background-image:url(/static/img/Chicken_Stir-Fry_with_Noodles.jpg);}
+.Southwestern_Beef_Wraps{background-image:url(/static/img/Southwestern_Beef_Wraps.jpg);}
+.Cuban_Style_Lamb{background-image:url(/static/img/Cuban_Style_Lamb.jpg);}
+.Shumai_with_Crab_and_Pork{background-image:url(/static/img/Shumai_with_Crab_and_Pork.jpg);}
+.Cilantro_Lime_Chicken_Tacos{background-image:url(/static/img/Cilantro_Lime_Chicken_Tacos.jpg);}
+.Slow_Cooker_Irish_Beef_Stew{background-image:url(/static/img/Slow_Cooker_Irish_Beef_Stew.jpg);}
+
+.cc-selector input:active +.drinkcard-cc{opacity: .9;}
+.cc-selector input:checked +.drinkcard-cc{
+    -webkit-filter: none;
+       -moz-filter: none;
+            filter: none;
+}
+.drinkcard-cc{
+    cursor:pointer;
+    background-size:contain;
+    background-repeat:no-repeat;
+    display:inline-block;
+    width:200px;height:140px;
+    -webkit-transition: all 100ms ease-in;
+       -moz-transition: all 100ms ease-in;
+            transition: all 100ms ease-in;
+    -webkit-filter: brightness(1.8) grayscale(1) opacity(.7);
+       -moz-filter: brightness(1.8) grayscale(1) opacity(.7);
+            filter: brightness(1.8) grayscale(1) opacity(.7);
+}
+
+.drinkcard-cc:hover{
+    -webkit-filter: brightness(1.2) grayscale(.5) opacity(.9);
+       -moz-filter: brightness(1.2) grayscale(.5) opacity(.9);
+            filter: brightness(1.2) grayscale(.5) opacity(.9);
+}
+
+
+
+
+/* Extras */
+a:visited{color:#888}
+a{color:#444;text-decoration:none;}
+p{margin-bottom:.3em;}

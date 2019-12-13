@@ -1,0 +1,109 @@
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        input {
+            margin: 0;
+        }
+
+        /*初始化样式*/
+        .star_evaluate {
+            position: relative;
+            width: 100px;
+            height: 20px;
+            background: url("/static/icon/icon-star-default.png") repeat-x;
+            background-size: 20px 20px;
+            overflow: hidden;
+        }
+
+        .star,.score{
+            display: block;
+            height: 20px;
+            width: 20px;
+            position: absolute;
+        }
+        .star{
+            z-index: 2;
+        }
+        .score{
+            opacity: 0;
+        }
+
+        .star_1, .score_1 {
+            left: 0;
+        }
+
+        .star_2, .score_2 {
+            left: 20px;
+        }
+
+        .star_3, .score_3 {
+            left: 40px;
+        }
+
+        .star_4, .score_4 {
+            left: 60px;
+        }
+
+        .star_5, .score_5 {
+            left: 80px;
+        }
+
+        /*鼠标悬浮*/
+        .star:hover {
+            cursor: pointer;
+            background: url("/static/icon/icon-star-active.png") repeat-x;
+            background-size: 20px 20px;
+            left: 0;
+            z-index: 1;
+        }
+
+        .star_1:hover {
+            width: 20px;
+        }
+
+        .star_2:hover {
+            width: 40px;
+        }
+
+        .star_3:hover {
+            width: 60px;
+        }
+
+        .star_4:hover {
+            width: 80px;
+        }
+
+        .star_5:hover {
+            width: 100px;
+        }
+
+        /*选中之后*/
+        .score:checked + .star {
+            background: url("/static/icon/icon-star-active.png") repeat-x;
+            background-size: 20px 20px;
+            left: 0;
+            z-index: 1;
+        }
+
+        .score_1:checked + .star_1 {
+            width: 20px;
+        }
+
+        .score_2:checked + .star_2 {
+            width: 40px;
+        }
+
+        .score_3:checked + .star_3 {
+            width: 60px;
+        }
+
+        .score_4:checked + .star_4 {
+            width: 80px;
+        }
+
+        .score_5:checked + .star_5 {
+            width: 100px;
+        }

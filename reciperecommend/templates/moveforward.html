@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+<title>Recipe Recommendation System</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+
+<head>
+    <script>
+        <
+        meta
+        charset = "UTF-8" >
+            < meta
+        name = "viewport"
+        content = "width=device-width, initial-scale=1" >
+            < link
+        rel = "stylesheet"
+        href = "https://www.w3schools.com/w3css/4/w3.css" >
+            < link
+        rel = "stylesheet"
+        href = "https://fonts.googleapis.com/css?family=Raleway" >
+    </script>
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/image_click9.css') }}">
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/image_basicinfo.css') }}">
+
+
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/ie10-viewport-bug-workaround.css') }}">
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/register.css') }}">
+    <script src="{{ url_for('static', filename='js/ie-emulation-modes-warning.js') }}"></script>
+
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <script type="text/javascript">
+        function getQueryVariable(variable) {
+            var query = window.location.search.substring(1);
+            var vars = query.split("&");
+            for (var i = 0; i < vars.length; i++) {
+                var pair = vars[i].split("=");
+                if (pair[0] == variable) {
+                    return pair[1];
+                }
+            }
+            return (false);
+        }
+
+        $(document).ready(function () {
+            if (getQueryVariable("reg") == 2) {
+                document.getElementById('Fill in Personal Information').style.display = 'block';
+            }
+        });
+    </script>
+
+</head>
+
+<body>
+
+<div class="bgimg w3-display-container w3-text-white">
+    <div class="w3-display-middle w3-jumbo">
+        <p>Health Recipe Recommendation</p>
+    </div>
+    <div class="w3-display-topleft w3-container w3-xlarge">
+        <p>
+            <button onclick="document.getElementById('Choose Flavor').style.display='block'" class="w3-button w3-black">
+                Get Today's Recommendation
+            </button>
+        </p>
+        <p>
+            <button onclick="document.getElementById('Fill in Personal Information').style.display='block'"
+                    class="w3-button w3-black">Modify Personal Information
+            </button>
+        </p>
+        <!--    <p><button onclick="{{ url_for('choose_flavor') }}"  class="w3-button w3-black">Choose Flavor</button></p>
+-->
+    </div>
+    <div class="w3-display-bottomleft w3-container">
+        <p class="w3-xlarge">
+            <!--14:51 | saturday 2019-11-09
+            -->
+            <script>
+                var myDate = new Date();
+                var str=myDate.toString( );
+                document.write(str.substring(0,24));
+</script>
+        </p>
+        <p class="w3-large">It is time for your lunch now.</p>
+        <p class="w3-large">Check and find what you may like</p>
+        <p>  </p>
+    </div>
+</div>
+
+<!-- Fill in Personal Information Modal -->
+<div id="Fill in Personal Information" class="w3-modal">
+    <div class="w3-modal-content w3-animate-zoom ">
+        <span onclick="document.getElementById('Fill in Personal Information').style.display='none'"
+              class="w3-button w3-display-topright w3-black">x</span>
+        <div class="sectiongrey">
+            <form action="/fill_info" method="post">
+                <div class="w3-quarter">
+                    <!-- <div class="round-button"><div class="round-button-circle"><a href="http://example.com" class="round-button">Button!!</a></div></div> -->
+                    <img src="/static/height.svg" alt="Boss" style="width:45%" class="w3-circle w3-hover-opacity"
+                         color="w3-text-white">
+                    <h3 style="font-weight: bold; color: white">Height</h3>
+                    <p></p>
+                    <p><input class="w3-input w3-animate-input" type="number" value="{{ context.height }}"
+                              style="width:30%" required name="height"></p>
+                </div>
+
+                <div class="w3-quarter">
+                    <img src="/static/weight.svg" alt="Boss" style="width:45%" class="w3-circle w3-hover-opacity">
+                    <h3 style="font-weight: bold; color: white">Weight(kg)</h3>
+                    <p></p>
+                    <p><input class="w3-input w3-animate-input" type="number" value="{{ context.weight }}"
+                              style="width:30%" required name="weight"></p>
+
+                </div>
+
+                <div class="w3-quarter">
+                    <div class="div-center"><img src="/static/age.svg" alt="Boss" style="width:45%"
+                                                 class="w3-circle w3-hover-opacity">
+                        <h3 style="font-weight: bold; color: white">Age</h3>
+                        <p></p>
+                        <p><input class="w3-input w3-animate-input" type="number" value="{{ context.age }}"
+                                  style="width:30%" required name="age"></p></div>
+                </div>
+
+
+                <div class="w3-quarter">
+                    <img src="/static/meal.svg" alt="Boss" style="width:45%" class="w3-circle w3-hover-opacity">
+                    <h3 style="font-weight: bold; color: white">Region</h3>
+                    <p></p>
+                    <p><input class="w3-input w3-animate-input" type="text" value="{{ context.region }}"
+                              style="width:30%" required name="region"></p>
+                </div>
+                <div class="w3-quarter">
+                    <img src="/static/goal.png" alt="Boss" style="width:45%" class="w3-circle w3-hover-opacity">
+                    <h3 style="font-weight: bold; color: white">Fitness Goal</h3>
+                    <p></p>
+                    <p><select class="w3-select w3-animate-input" class="form-control " style="width:30%" name="fitnessgoal" value="{{ context.fitnessgoal }}"
+                                required>
+                            <option>Lose Weight</option>
+                            <option>Build Muscle</option>
+                            <option>Keep Fit</option>
+                        </select></p></p>
+                </div>
+                <div class="w3-quarter">
+                    <img src="/static/gender.png" alt="Boss" style="width:45%" class="w3-circle w3-hover-opacity">
+                    <h3 style="font-weight: bold; color: white">Gender</h3>
+                    <p></p>
+                    <p>
+                        <select class="w3-select w3-animate-input" class="form-control " style="width:30%" name="gender" value="{{ context.gender }}"
+                                required>
+                            <option>male</option>
+                            <option>female</option>
+                        </select></p>
+                </div>
+                <div class="w3-quarter">
+                    <img src="/static/activity.png" alt="Boss" style="width:45%" class="w3-circle w3-hover-opacity">
+                    <h3 style="font-weight: bold; color: white">Exercise Activity</h3>
+                    <p></p>
+                    <p>
+                        <select class="w3-select w3-animate-input" class="form-control " style="width:30%"  value="{{ context.activity }}"
+                                name="activity" required>
+                            <option>Sedentary</option>
+                            <option>LowActive</option>
+                            <option>Active</option>
+                            <option>HighActive</option>
+                        </select>
+                </div>
+                <div class="w3-quarter">
+                    <img src="/static/cooking.png" alt="Boss" style="width:45%" class="w3-circle w3-hover-opacity">
+                    <h3 style="font-weight: bold; color: white">Cooking Skill</h3>
+                    <p></p>
+                    <p>
+                    <select class="w3-select w3-animate-input" class="form-control " style="width:30%"  value="{{ context.cookingskill }}"
+                                name="cookingskill" required>
+                            <option>Basic</option>
+                            <option>Intermediate</option>
+                            <option>Advanced</option>
+                        </select>
+                    <!--
+                    <div class="div-center"><input class="w3-input w3-animate-input" class="btn btn-primary"
+                                                   type="submit" style="width:30%" name="action" value="Confirm"
+                                                   onclick="document.getElementById('Choose Flavor').style.display='block'"
+                                                   class="w3-button w3-black"/></div>
+                    -->
+                    </p>
+                </div>
+                <p></p>
+                <div class="w3-row">
+  <div class="w3-col" style="width:40%"><p></p></div>
+  <div class="w3-col" style="width:32%"><p><input class="w3-input w3-animate-input" class="btn btn-primary"
+                                                   type="submit" style="width:30%" name="action" value="Confirm"
+                                                   class="w3-button"/></p>
+  <div class="w3-col" style="width:40%"><p></p></div>
+</div>
+                <!--
+                <p><div class="div-center"><input class="btn btn-primary" type="submit" name="action" value="Confirm" /></div></p>
+                -->
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- Choose Flavor Modal -->
+<div id="Choose Flavor" class="w3-modal">
+    <div class="w3-modal-content w3-animate-zoom">
+        <span onclick="document.getElementById('Choose Flavor').style.display='none'"
+              class="w3-button w3-display-topright w3-black">x</span>
+        <div class="section center center">
+            <form action="{{ url_for('choose_flavor') }}" method="post">
+                <div class="cc-selector">
+                    <div class="input-group">
+                 {% for j in range(3) %}
+                     <div class="w3-row">
+                        <div align="center">
+                            {% for i in range(3) %}
+                                <div class="w3-third w3-container">
+                                <!--{% if loop.first %}
+                                    <input id="selectorid{{j}}"  type="radio" name="flavor" value="0" required/>
+                                {%  else %}
+                                {% endif %}-->
+                                <input id="{{j}}"  type="radio" name="choosedrecipe" value="{{j}}" required/>
+                                <label class="drinkcard-cc" for="{{ j }}" style="background-image:url({{ context.recipe[j]['recipearr'][i]['imgurl']  }})">"</label>
+                                    <p><div style="font-weight: bold; color: white;">{{ context.recipe[j]['recipearr'][i]['name'] }}</div></p>
+                            </div>
+                            {% endfor %}
+                        </div>
+                     </div>
+                {% endfor %}
+                    </div>
+                </div>
+                <p>
+                <div class="w3-row">
+                <div class="w3-third w3-container"></div>
+                <div class="w3-third w3-container">
+                <div class="div-center"><input class="btn btn-primary" type="submit" name="action"
+                                               value="Choose"/></div>
+                    </div>
+                <div class="w3-third w3-container"></div>
+            </div>
+                </p>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- Contact Modal -->
+<div id="contact" class="w3-modal">
+    <div class="w3-modal-content w3-animate-zoom">
+        <div class="sectiongrey">
+            <div class="w3-container w3-black">
+                <span onclick="document.getElementById('contact').style.display='none'"
+                      class="w3-button w3-display-topright w3-black">x</span>
+                <!-- <h1>Contact</h1> -->
+            </div>
+            <div class="w3-container">
+                <p>Register:</p>
+                <form action="{{ url_for('register') }}" method="POST">
+                    <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Please enter your name"
+                              required name="name"></p>
+                    <p><input class="w3-input w3-padding-16 w3-border" type="email"
+                              placeholder="Please enter your email address" required name="email"></p>
+                    <p><input class="w3-input w3-padding-16 w3-border" type="password"
+                              placeholder="Please enter your password" required name="password"></p>
+                    <p><input class="w3-input w3-padding-16 w3-border" type="password"
+                              placeholder="Please verify your password" required name="password2"></p>
+                    <p>
+                        <button class="w3-button w3-padding-16" type="submit">Register</button>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- login Modal -->
+<div id="login" class="w3-modal">
+    <div class="w3-modal-content w3-animate-zoom">
+        <div class="sectiongrey">
+            <div class="w3-container w3-black">
+
+                <span onclick="document.getElementById('login').style.display='none'"
+                      class="w3-button w3-display-topright w3-black">x</span>
+                <!-- <h1>Contact</h1> -->
+            </div>
+            <div class="w3-container">
+                <p>login:</p>
+                <form action="{{ url_for('login') }}" method="POST">
+                    <p><input class="w3-input w3-padding-16 w3-border" type="email"
+                              placeholder="Please enter your email address" required name="email"></p>
+                    <p><input class="w3-input w3-padding-16 w3-border" type="password"
+                              placeholder="Please enter your password" required name="password"></p>
+                    <p>
+                        <button class="w3-button w3-padding-16" type="submit">login</button>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>
